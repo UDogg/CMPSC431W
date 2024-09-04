@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Proposal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css">
+    <link rel="stylesheet" href="https://codemirror.net/theme/dracula.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: #2e2e2e;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .keybinding {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            margin: 2px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-align: center;
+            color: #f8f8f2;
+        }
+
+        .description {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        #editor {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #6272a4;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .cm-s-dracula .CodeMirror {
+            height: auto;
+        }
+
+        /* New styles added */
+        h1, h2 {
+            font-weight: 600;
+            color: #f8f8f2;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-top: 40px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-top: 30px;
+        }
+
+        ul, ol {
+            text-align: left;
+            margin: 0 auto 20px auto;
+            padding-left: 40px;
+            max-width: 800px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #50fa7b;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #f1fa8c;
+            text-decoration: underline;
+        }
+
+        button {
+            background-color: #50fa7b;
+            color: #282a36;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #f1fa8c;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            max-width: 800px;
+            border: 1px solid #6272a4;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #6272a4;
+        }
+
+        th {
+            background-color: #44475a;
+            color: #f8f8f2;
+            font-weight: 600;
+        }
+
+        td {
+            background-color: #282a36;
+            color: #f8f8f2;
+        }
+
+        blockquote {
+            margin: 20px auto;
+            padding: 15px 20px;
+            background-color: #44475a;
+            border-left: 5px solid #50fa7b;
+            max-width: 800px;
+            color: #f8f8f2;
+            text-align: left;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            .description {
+                font-size: 16px;
+            }
+
+            ul, ol {
+                padding-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Project Proposal</h1>
+        <hr />
+        <h2>Database Schema for a Restaurant Chain Franchise Management System</h2>
+        <p>To manage a restaurant chain with various branches across different countries, we'll need a comprehensive database design. Below is a suggested schema with tables that we might implement and their relationships:</p>
+        <p>This schema is designed to be a simple and efficient database for a restaurant chain franchise management system. It includes tables for branches, franchises, owners, employees, shifts, menu items, orders, order details, customers, invoices, suppliers, inventory, rentals, countries, and financial transactions.</p>
+        <p>It is modelled after a real-world restaurant chain (eg. Subway, McDonald's, etc.), with a focus on simplicity and ease of understanding.</p>
+
+        <h2>1.&nbsp;<span>Branches</span></h2>
+        <p class="description">Stores details about each restaurant branch.</p>
+        <ul>
+            <li><strong>Columns:</strong>&nbsp;<span>BranchID (Primary Key), Address, City, State/Province, Country, ZipCode, OpeningDate, ManagerID (Foreign Key), FranchiseID (Foreign Key)</span></li>
+        </ul>
+
+        <h2>2.&nbsp;<span>Franchises</span></h2>
+        <p class="description">Stores details about different franchise groups.</p>
+        <ul>
+            <li><strong>Columns:</strong>&nbsp;<span>FranchiseID (Primary Key), FranchiseName, OwnerID (Foreign Key), EstablishedDate</span></li>
+        </ul>
+
+        <h2>3.&nbsp;<span>Owners</span></h2>
+        <p class="description">Keeps information about the franchise owners.</p>
+        <ul>
+            <li><strong>Columns:</strong>&nbsp;<span>OwnerID (Primary Key), OwnerName, ContactInfo, Address</span></li>
+        </ul>
+
+        <h2>4.&nbsp;<span>Employees</span></h2>
+        <p class="description">Manages information about employees at each branch.</p>
+        <ul>
+            <li><strong>Columns:</strong>&nbsp;<span>EmployeeID (Primary Key), Name, Position, Salary, BranchID (Foreign Key), HireDate, ShiftID (Foreign Key)</span></li>
+        </ul>
+
+        <h2>5.&nbsp;<span>Shifts</span></h2>
+        <p class="description">Tracks employee shifts at different branches.</p>
+        <ul>
+            <li><strong>Columns:</strong>&nbsp;<span>ShiftID (Primary Key), BranchID (Foreign Key), EmployeeID (Foreign Key), ShiftStart, ShiftEnd, Role</span></li>
+        </ul>
+
+        <h2>6.&nbsp;<span>MenuItems</span></h2>
+        <p class="description">Contains information about menu items available at each branch.</p>
+        <ul>
+            <li><strong>Columns:</strong>&nbsp;<span>MenuItemID (Primary Key), Name, Description, Price, Category, IsAvailable</span></li>
+        </ul>
+
+        <h2>7.&nbsp;<span>Orders</span></h2>
+        <p class="description">Logs customer orders placed at each branch.</p>
+        <ul>
+            <li><strong>Columns:</strong>&nbsp;<span>OrderID (Primary Key), BranchID (Foreign Key), CustomerID (Foreign Key), OrderDate, TotalAmount</span></li>
+        </ul>
+
+        <h2>8.&nbsp;<span>OrderDetails</span></h2>
+        <p class="description">Junction table linking orders to menu items.</p>
+        <ul>
+            <li><strong>Columns:</strong>&nbsp;<span>OrderDetailID (Primary Key), OrderID (Foreign Key), MenuItemID (Foreign Key), Quantity</span></li>
+        </ul>
+
+        <h2>9.&nbsp;<span>Customers</span></h2>
+        <p class="description">Manages customer information and loyalty programs.</p>
+        <ul>
+            <li><strong>Columns:</strong>&nbsp;<span>CustomerID (Primary Key), Name, ContactInfo, LoyaltyPoints, LastVisitedDate</span></li>
+        </ul>
+
+        <h2>10.&nbsp;<span>Invoices</span></h2>
+        <p class="description">Tracks invoices for each branch, including supplier details and other expenses.</p>
+        <ul>
+            <li><strong>Columns:</strong>&nbsp;<span>InvoiceID (Primary Key), BranchID (Foreign Key), SupplierID (Foreign Key), Amount, InvoiceDate, PaymentStatus</span></li>
+        </ul>
+
+        <h2>11.&nbsp;<span>Suppliers</span></h2>
+        <p class="description">Maintains details about suppliers for the restaurant chain.</p>
+        <ul>
+            <li><strong>Columns:</strong>&nbsp;<span>SupplierID (Primary Key), SupplierName, ContactInfo, ProductSupplied, ContractDetails</span></li>
+        </ul>
+
+        <h2>12.&nbsp;<span>Inventory</span></h2>
+        <p class="description">Tracks the inventory of ingredients and supplies at each branch.</p>
+        <ul>
+            <li><strong>Columns:</strong>&nbsp;<span>InventoryID (Primary Key), BranchID (Foreign Key), ProductID (Foreign Key), Quantity, ReorderLevel, LastUpdated</span></li>
+        </ul>
+
+        <h2>13.&nbsp;<span>Rentals</span></h2>
+        <p class="description">Keeps track of rental agreements for each branch location.</p>
+        <ul>
+            <li><strong>Columns:</strong>&nbsp;<span>RentalID (Primary Key), BranchID (Foreign Key), OwnerID (Foreign Key), RentAmount, LeaseStartDate, LeaseEndDate, PaymentStatus</span></li>
+        </ul>
+
+        <h2>14.&nbsp;<span>Countries</span></h2>
+        <p class="description">Contains information about the countries where branches are located.</p>
+        <ul>
+            <li><strong>Columns:</strong>&nbsp;<span>CountryID (Primary Key), CountryName, Currency, TaxRate</span></li>
+        </ul>
+
+        <h2>15.&nbsp;<span>Financial Transactions</span></h2>
+        <p class="description">Manages financial transactions, including sales, expenses, and other financial activities.</p>
+        <ul>
+            <li><strong>Columns:</strong>&nbsp;<span>TransactionID (Primary Key), BranchID (Foreign Key), Type (Sale, Expense, etc.), Amount, TransactionDate, Description</span></li>
+        </ul>
+
+        <h2>Key Features to Implement</h2>
+        <ul>
+            <li><strong>Insert Data:</strong>&nbsp;<span>Allow adding new branches, employees, menu items, orders, customers, invoices, and inventory items.</span></li>
+            <li><strong>Delete Data:</strong>&nbsp;<span>Provide functionality to remove outdated or incorrect entries, such as deleting an employee record or a menu item no longer available.</span></li>
+            <li><strong>Update Data:</strong>&nbsp;<span>Allow updates to records, such as changing an employee’s shift, modifying menu item prices, or updating stock levels.</span></li>
+            <li><strong>Analytical Report:</strong>&nbsp;<span>Create reports that join multiple tables to provide insights, such as sales by country, city, or branch, inventory usage and restock requirements, employee performance and shift scheduling, and financial summaries per branch.</span></li>
+            <li><strong>Transaction with Rollback:</strong>&nbsp;<span>Implement a multi-step transaction, such as processing a large supplier order, which involves inserting new invoice records, updating inventory, and adjusting financial records. Include rollback functionality if one step fails.</span></li>
+            <li><strong>Error Handling and Recovery:</strong>&nbsp;<span>Ensure robust error handling for situations like invalid data entries, network failures, or unexpected financial discrepancies. Provide user-friendly error messages and recover gracefully.</span></li>
+            <li><strong>Menu Management:</strong>&nbsp;<span>Features for adding, updating, or removing menu items, setting availability per branch, and categorizing items.</span></li>
+            <li><strong>Employee Scheduling and Management:</strong>&nbsp;<span>A system for managing employee schedules, roles, and payroll data.</span></li>
+            <li><strong>Customer Loyalty Program:</strong>&nbsp;<span>Track customer visits and loyalty points, offering discounts or promotions based on loyalty.</span></li>
+            <li><strong>Branch and Franchise Management:</strong>&nbsp;<span>Tools to manage multiple branches and franchises, track their performance, and optimize operations.</span></li>
+        </ul>
+
+        <h2>Complex Queries Example</h2>
+        <ul>
+            <li><strong>Query to Generate a Sales Report:</strong>&nbsp;<span>Join the <strong>Orders</strong>, <strong>OrderDetails</strong>, <strong>MenuItems</strong>, and <strong>Branches</strong> tables to generate a report showing total sales by branch, broken down by menu item category.</span></li>
+            <li><strong>Query for Inventory Management:</strong>&nbsp;<span>Join <strong>Inventory</strong>, <strong>Suppliers</strong>, and <strong>Branches</strong> to monitor stock levels and identify items that need reordering based on branch-specific requirements.</span></li>
+            <li><strong>Employee Performance Analysis:</strong>&nbsp;<span>Join <strong>Employees</strong>, <strong>Shifts</strong>, <strong>Orders</strong>, and <strong>Branches</strong> to analyze employee performance, such as the number of orders handled per shift or sales generated by each employee.</span></li>
+            <li><strong>Financial Overview by Franchise:</strong>&nbsp;<span>Join <strong>FinancialTransactions</strong>, <strong>Invoices</strong>, <strong>Branches</strong>, and <strong>Franchises</strong> to produce a financial overview for each franchise group, summarizing revenues, expenses, and profitability.</span></li>
+        </ul>
+
+        <h2>Implementation Plan</h2>
+        <ol>
+            <li><strong>Requirements and Planning (Stage I):</strong>&nbsp;<span>Clearly define our application’s purpose, the entities involved, and the relationships. Document all features and draft the team contract.</span></li>
+            <li><strong>Database Design (Stage II):</strong>&nbsp;<span>Create an ER diagram, normalize our tables, and write all necessary SQL statements.</span></li>
+            <li><strong>Development and Testing (Stage III):</strong>&nbsp;<span>Develop the application, focusing on the required user interfaces, transactions, and error handling. Test each feature thoroughly.</span></li>
+            <li><strong>Documentation and Demonstration:</strong>&nbsp;<span>Prepare a comprehensive user manual, set up our GitHub repo, and prepare for our demo presentation.</span></li>
+        </ol>
+
+        <h2>Above and Beyond</h2>
+        <h3>Django Integration</h3>
+        <p>These are some of the additional features that we could implement to make our database more robust and useful.</p>
+        <ul>
+            <li><strong>Data Analysis:</strong>&nbsp;<span>Implement data analysis features to allow users to query the database and generate reports on sales, inventory, employee performance, and financial summaries by branch or franchise.</span></li>
+            <li><strong>User Interface:</strong>&nbsp;<span>Develop a user-friendly interface for the database system, including a login system, data entry forms, and reports.</span></li>
+            <li><strong>Security:</strong>&nbsp;<span>Implement security measures to protect the database from unauthorized access and ensure data integrity.</span></li>
+            <li><strong>Performance Optimization:</strong>&nbsp;<span>Optimize the database for performance, including indexing and query optimization.</span></li>
+            <li><strong>Data Visualization:</strong>&nbsp;<span>Implement data visualization features to allow users to view data in graphical form, such as charts and graphs.</span></li>
+        </ul>
+
+        <p>By following this structured approach, we will build a robust and comprehensive database management system for a restaurant chain franchise, demonstrating a deep understanding of database concepts and practical application skills.</p>
+    </div>
+</body>
+</html>
